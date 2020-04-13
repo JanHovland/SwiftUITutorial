@@ -59,7 +59,7 @@ struct SwiftUITutorial: View {
         .alert(item: $alertIdentifier) { alert in
             switch alert.id {
             case .first:
-                return Alert(title: Text(self.message), message: Text("Message"), dismissButton: .cancel())                          //(title: Text(self.message))
+                return Alert(title: Text(self.message), message: Text("Nå er alle dataene hentet frem fra Tutorial tabellen på CloudKit"), dismissButton: .cancel())                          //(title: Text(self.message))
             case .second:
                 return Alert(title: Text(self.message))
             case .third:
