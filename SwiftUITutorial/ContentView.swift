@@ -56,7 +56,7 @@ struct MainView: View {
             Text(tutorial.introduction)
                 .font(.system(size: 13, weight: .ultraLight))
                 .padding(.leading, 15)
-                /// .frame gjør at en lang tekst spittes opp i flere linjer
+                /// .frame gjør at en lang tekst spittes opp i flere linjer uten at enmå legge inn \n
                 .frame(width: 250)
         }
         .padding(.top, 5)
