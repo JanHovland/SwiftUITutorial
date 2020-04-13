@@ -11,10 +11,10 @@ import WebKit
 import CloudKit
 
 var tutorials = [ Tutorial(title: "Getting Started With Combine",
-                           introduction: "Maybe you’re not yet ready to jump\ninto SwiftUI but you can still get started\nwith Combine. Here’s a gentle introduction to using\nCombine to validate user input.",
+                           introduction: "Maybe you’re not yet ready to jump into SwiftUI but you can still get started with Combine. Here’s a gentle introduction to using Combine to validate user input.",
                            url: "https://useyourloaf.com/blog/getting-started-with-combine/?utm_campaign=AppCoda%20Weekly&utm_medium=email&utm_source=Revue%20newsletter"),
                   Tutorial(title: "SwiftUI ButtonStyle",
-                           introduction: "SwiftUI makes it very easy to customize\na button style. Learn how to create a reusable\nbutton style in SwiftUI.",
+                           introduction: "SwiftUI makes it very easy to customize a button style. Learn how to create a reusable button style in SwiftUI.",
                            url:"https://sarunw.com/posts/swiftui-buttonstyle/?utm_campaign=AppCoda%20Weekly&utm_medium=email&utm_source=Revue%20newsletter")]
 
 struct SafariView : NSViewRepresentable {
@@ -52,9 +52,12 @@ struct MainView: View {
     var body: some View {
         VStack (alignment: .leading, spacing: 10) {
             Text(tutorial.title)
-                .font(Font.system(.headline))
+                .font(.system(size: 15, weight: .light, design: .rounded))
             Text(tutorial.introduction)
+                .font(.system(size: 13, weight: .ultraLight))
                 .padding(.leading, 15)
+                /// .frame gjør at en lang tekst spittes opp i flere linjer
+                .frame(width: 250)
         }
         .padding(.top, 5)
     }
