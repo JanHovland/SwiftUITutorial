@@ -17,12 +17,13 @@ var tutorials = [ Tutorial(title: "Getting Started With Combine",
                            introduction: "SwiftUI makes it very easy to customize\na button style. Learn how to create a reusable\nbutton style in SwiftUI.",
                            url:"https://sarunw.com/posts/swiftui-buttonstyle/?utm_campaign=AppCoda%20Weekly&utm_medium=email&utm_source=Revue%20newsletter")]
 
-struct TestView : NSViewRepresentable {
-    
+struct SafariView : NSViewRepresentable {
+    var tutorial: Tutorial
+
     func updateNSView(_ nsView: WKWebView, context: Context) {
+        
     }
     
-    var tutorial: Tutorial
     func makeNSView(context: Context) -> WKWebView  {
         let view = WKWebView()
         if let url = URL(string: tutorial.url) {
@@ -30,21 +31,14 @@ struct TestView : NSViewRepresentable {
         }
         return view
     }
-    
 }
 
 struct ContentView: View {
     var body: some View {
         NavigationView {
             List (tutorials) { tutorial in
-                NavigationLink(destination: TestView(tutorial: tutorial)) {
-                    VStack (alignment: .leading, spacing: 10) {
-                        Text(tutorial.title)
-                            .font(Font.system(.headline))
-                        Text(tutorial.introduction)
-                            .padding(.leading, 15)
-                    }
-                    .padding(.top, 5)
+                NavigationLink(destination: SafariView(tutorial: tutorial)) {
+                    MainView(tutorial: tutorial)
                 }
             }
         }
@@ -53,3 +47,15 @@ struct ContentView: View {
     }
 }
 
+struct MainView: View {
+    var tutorial: Tutorial
+    var body: some View {
+        VStack (alignment: .leading, spacing: 10) {
+            Text(tutorial.title)
+                .font(Font.system(.headline))
+            Text(tutorial.introduction)
+                .padding(.leading, 15)
+        }
+        .padding(.top, 5)
+    }
+}
