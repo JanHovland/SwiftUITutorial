@@ -6,6 +6,9 @@
 //  Copyright © 2020 Jan Hovland. All rights reserved.
 //
 
+//  Block comment : Ctrl + Cmd + / (on number pad)
+//  Indent        : Ctrl + Cmd + * (on number pad)
+
 import SwiftUI
 import WebKit
 import CloudKit
@@ -36,7 +39,10 @@ struct SwiftUITutorial: View {
              introduction: "SwiftUI makes it very easy to customize a button style. Learn how to create a reusable button style in SwiftUI.",
              url:"https://sarunw.com/posts/swiftui-buttonstyle/?utm_campaign=AppCoda%20Weekly&utm_medium=email&utm_source=Revue%20newsletter")
          ]
-
+   
+    @State private var alertIdentifier: AlertID?
+    @State private var message: String = ""
+    
     var body: some View {
         NavigationView {
             List (tutorials) { tutorial in
@@ -49,6 +55,16 @@ struct SwiftUITutorial: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .onAppear {
             self.fetchData()
+        }
+        .alert(item: $alertIdentifier) { alert in
+            switch alert.id {
+            case .first:
+                return Alert(title: Text(self.message), message: Text("Message"), dismissButton: .cancel())                          //(title: Text(self.message))
+            case .second:
+                return Alert(title: Text(self.message))
+            case .third:
+                return Alert(title: Text(self.message))
+            }
         }
     }
     
@@ -63,10 +79,11 @@ struct SwiftUITutorial: View {
             case .success(let tutorial):
                 self.tutorials.append(tutorial)
                 self.tutorials.sort(by: {$0.title < $1.title})
+                self.message = NSLocalizedString("Fetched all Tutorial data", comment: "SwiftUITutorial")
+                self.alertIdentifier = AlertID(id: .first)
             case .failure(let err):
-                let _ = err
-//                self.message = err.localizedDescription
-//                self.alertIdentifier = AlertID(id: .first)
+                self.message = err.localizedDescription
+                self.alertIdentifier = AlertID(id: .first)
             }
         }
     }
