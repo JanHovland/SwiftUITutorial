@@ -8,19 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		DB6F2FDA2444411200C605F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F2FD92444411200C605F6 /* AppDelegate.swift */; };
-		DB6F2FDC2444411200C605F6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F2FDB2444411200C605F6 /* ContentView.swift */; };
+		DB6F2FDC2444411200C605F6 /* SwiftUITutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F2FDB2444411200C605F6 /* SwiftUITutorial.swift */; };
 		DB6F2FDF2444411200C605F6 /* SwiftUITutorial.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB6F2FDD2444411200C605F6 /* SwiftUITutorial.xcdatamodeld */; };
 		DB6F2FE12444411400C605F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB6F2FE02444411400C605F6 /* Assets.xcassets */; };
 		DB6F2FE42444411400C605F6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB6F2FE32444411400C605F6 /* Preview Assets.xcassets */; };
 		DB6F2FE72444411400C605F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB6F2FE52444411400C605F6 /* Main.storyboard */; };
 		DB6F2FF2244441D500C605F6 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB6F2FF02444417200C605F6 /* CloudKit.framework */; };
 		DB6F2FF72444431100C605F6 /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F2FF62444431100C605F6 /* Tutorial.swift */; };
+		DB6F2FFA2444DAB600C605F6 /* CloudKitTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F2FF92444DAB600C605F6 /* CloudKitTutorial.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DB6F2FD62444411200C605F6 /* SwiftUITutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUITutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB6F2FD92444411200C605F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DB6F2FDB2444411200C605F6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DB6F2FDB2444411200C605F6 /* SwiftUITutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITutorial.swift; sourceTree = "<group>"; };
 		DB6F2FDE2444411200C605F6 /* SwiftUITutorial.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SwiftUITutorial.xcdatamodel; sourceTree = "<group>"; };
 		DB6F2FE02444411400C605F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB6F2FE32444411400C605F6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -29,6 +30,7 @@
 		DB6F2FE92444411400C605F6 /* SwiftUITutorial.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftUITutorial.entitlements; sourceTree = "<group>"; };
 		DB6F2FF02444417200C605F6 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		DB6F2FF62444431100C605F6 /* Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
+		DB6F2FF92444DAB600C605F6 /* CloudKitTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitTutorial.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,9 +65,10 @@
 		DB6F2FD82444411200C605F6 /* SwiftUITutorial */ = {
 			isa = PBXGroup;
 			children = (
+				DB6F2FF82444DA7A00C605F6 /* CloudKit */,
 				DB6F2FF5244442AB00C605F6 /* Model */,
 				DB6F2FD92444411200C605F6 /* AppDelegate.swift */,
-				DB6F2FDB2444411200C605F6 /* ContentView.swift */,
+				DB6F2FDB2444411200C605F6 /* SwiftUITutorial.swift */,
 				DB6F2FE02444411400C605F6 /* Assets.xcassets */,
 				DB6F2FE52444411400C605F6 /* Main.storyboard */,
 				DB6F2FE82444411400C605F6 /* Info.plist */,
@@ -98,6 +101,14 @@
 				DB6F2FF62444431100C605F6 /* Tutorial.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		DB6F2FF82444DA7A00C605F6 /* CloudKit */ = {
+			isa = PBXGroup;
+			children = (
+				DB6F2FF92444DAB600C605F6 /* CloudKitTutorial.swift */,
+			);
+			path = CloudKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,7 +182,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB6F2FDC2444411200C605F6 /* ContentView.swift in Sources */,
+				DB6F2FDC2444411200C605F6 /* SwiftUITutorial.swift in Sources */,
+				DB6F2FFA2444DAB600C605F6 /* CloudKitTutorial.swift in Sources */,
 				DB6F2FF72444431100C605F6 /* Tutorial.swift in Sources */,
 				DB6F2FDA2444411200C605F6 /* AppDelegate.swift in Sources */,
 				DB6F2FDF2444411200C605F6 /* SwiftUITutorial.xcdatamodeld in Sources */,
