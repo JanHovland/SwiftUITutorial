@@ -10,24 +10,7 @@
 //  Indent        : Ctrl + Cmd + * (on number pad)
 
 import SwiftUI
-import WebKit
 import CloudKit
-
-struct SafariView : NSViewRepresentable {
-    var url: String
-
-    func updateNSView(_ nsView: WKWebView, context: Context) {
-        
-    }
-    
-    func makeNSView(context: Context) -> WKWebView  {
-        let view = WKWebView()
-        if let url = URL(string: url) {
-            view.load(URLRequest(url: url))
-        }
-        return view
-    }
-}
 
 struct SwiftUITutorial: View {
     
