@@ -57,7 +57,7 @@ struct SwiftUITutorial: View {
         .listStyle(SidebarListStyle())
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .onAppear {
-            self.fetchData()
+            self.refresh()
         }
         .alert(item: $alertIdentifier) { alert in
             switch alert.id {
@@ -72,7 +72,7 @@ struct SwiftUITutorial: View {
     }
     
     /// Rutine for å friske opp bildet
-    func fetchData() {
+    func refresh() {
         /// Sletter alt tidligere innhold i person
         tutorials.removeAll()
         /// Fetch all tutorials from CloudKit
