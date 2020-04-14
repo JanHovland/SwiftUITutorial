@@ -1,3 +1,6 @@
 /* SwiftUITutorial */
 "Fetched all Tutorial data" = "Hentet alle opplæringsdata";
 
+/* SwiftUITutorial */
+"Now all the data is extracted from the Tutorial table on CloudKit" = "Nå er alle dataene hentet fra Tutorial tabellen på CloudKit";
+
