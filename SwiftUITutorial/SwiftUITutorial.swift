@@ -50,7 +50,7 @@ struct SwiftUITutorial: View {
         NavigationView {
             List (tutorials) { tutorial in
                 NavigationLink(destination: SafariView(url: tutorial.url)) {
-                    MainView(tutorial: tutorial)
+                    MasterView(tutorial: tutorial)
                 }
             }
         }
@@ -94,7 +94,7 @@ struct SwiftUITutorial: View {
 
 }
 
-struct MainView: View {
+struct MasterView: View {
     var tutorial: Tutorial
     var body: some View {
         VStack (alignment: .leading, spacing: 10) {
