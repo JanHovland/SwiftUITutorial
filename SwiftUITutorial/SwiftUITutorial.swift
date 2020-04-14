@@ -31,6 +31,8 @@ struct SafariView : NSViewRepresentable {
 
 struct SwiftUITutorial: View {
     
+    /// Dersom du legger inn nye AppIcon, reset Xcode, kjør CleanMyMacX og kompiler på nytt
+    
     @State private var tutorials =
         [Tutorial(title: "Getting Started With Combine",
              introduction: "Maybe you’re not yet ready to jump into SwiftUI but you can still get started with Combine. Here’s a gentle introduction to using Combine to validate user input.",
