@@ -14,7 +14,7 @@ import WebKit
 import CloudKit
 
 struct SafariView : NSViewRepresentable {
-    var tutorial: Tutorial
+    var url: String
 
     func updateNSView(_ nsView: WKWebView, context: Context) {
         
@@ -22,7 +22,7 @@ struct SafariView : NSViewRepresentable {
     
     func makeNSView(context: Context) -> WKWebView  {
         let view = WKWebView()
-        if let url = URL(string: tutorial.url) {
+        if let url = URL(string: url) {
             view.load(URLRequest(url: url))
         }
         return view
@@ -44,11 +44,12 @@ struct SwiftUITutorial: View {
    
     @State private var alertIdentifier: AlertID?
     @State private var message: String = ""
-    
+    @State private var message1: String = ""
+
     var body: some View {
         NavigationView {
             List (tutorials) { tutorial in
-                NavigationLink(destination: SafariView(tutorial: tutorial)) {
+                NavigationLink(destination: SafariView(url: tutorial.url)) {
                     MainView(tutorial: tutorial)
                 }
             }
@@ -61,12 +62,11 @@ struct SwiftUITutorial: View {
         .alert(item: $alertIdentifier) { alert in
             switch alert.id {
             case .first:
-                return Alert(title: Text(self.message), message: Text(NSLocalizedString("Now all the data is extracted from the Tutorial table on CloudKit", comment: "SwiftUITutorial")),
-                     dismissButton: .cancel())
+                return Alert(title: Text(self.message), message: Text(self.message1), dismissButton: .cancel())
             case .second:
-                return Alert(title: Text(self.message))
+                return Alert(title: Text(self.message), message: Text(self.message1), dismissButton: .cancel())
             case .third:
-                return Alert(title: Text(self.message))
+                return Alert(title: Text(self.message), message: Text(self.message1), dismissButton: .cancel())
             }
         }
     }
@@ -83,6 +83,7 @@ struct SwiftUITutorial: View {
                 self.tutorials.append(tutorial)
                 self.tutorials.sort(by: {$0.title < $1.title})
                 self.message = NSLocalizedString("Fetched all Tutorial data", comment: "SwiftUITutorial")
+                self.message1 = NSLocalizedString("Now all the data is extracted from the Tutorial table on CloudKit", comment: "SwiftUITutorial")
                 self.alertIdentifier = AlertID(id: .first)
             case .failure(let err):
                 self.message = err.localizedDescription
